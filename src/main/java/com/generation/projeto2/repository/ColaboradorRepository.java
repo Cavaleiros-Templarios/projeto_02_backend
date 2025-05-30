@@ -10,6 +10,6 @@ import com.generation.projeto2.model.Colaborador;
 @Repository
 public interface ColaboradorRepository  extends JpaRepository<Colaborador, Long> {
 	
-	List<Colaborador> findAllByNome_colaboradorContainingIgnoreCase(String nome_colaborador);
+	List<Colaborador> findAllByNomeColaboradorContainingIgnoreCase(String nomeColaborador);
 
 }

@@ -38,11 +38,11 @@ public class Colaborador {
 	@Column(length = 100)
     @NotBlank(message = "O atributo nome é obrigatorio")
     @Size(min = 5, max = 100, message = "O nome deve ter no minimo 5 caracteres e no maximo 100")
-    private String nome_colaborador;
+    private String nomeColaborador;
 	
 	@Past(message = "A data de nascimento precisar ser no passado")
 	@JsonFormat(pattern = "yyyy-MM-dd")
-	private LocalDate data_nascimento;
+	private LocalDate dataNascimento;
 	
 	@ManyToOne
 	@JsonIgnoreProperties("colaborador")
@@ -72,20 +72,20 @@ public class Colaborador {
 		this.cargo = cargo;
 	}
 
-	public String getNome_colaborador() {
-		return nome_colaborador;
+	public String getNomeColaborador() {
+		return nomeColaborador;
 	}
 
-	public void setNome_colaborador(String nome_colaborador) {
-		this.nome_colaborador = nome_colaborador;
+	public void setNomeColaborador(String nomeColaborador) {
+		this.nomeColaborador = nomeColaborador;
 	}
 
-	public LocalDate getData_nascimento() {
-		return data_nascimento;
+	public LocalDate getDataNascimento() {
+		return dataNascimento;
 	}
 
-	public void setData_nascimento(LocalDate data_nascimento) {
-		this.data_nascimento = data_nascimento;
+	public void setDataNascimento(LocalDate dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 
 	public Departamento getDepartamento() {
