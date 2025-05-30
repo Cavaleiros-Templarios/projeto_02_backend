@@ -1,5 +1,6 @@
 package com.generation.projeto2.controller;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,18 +19,25 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.generation.projeto2.dto.CalculoSalario;
 import com.generation.projeto2.model.Colaborador;
 import com.generation.projeto2.repository.ColaboradorRepository;
-
+import com.generation.projeto2.service.ColaboradorService;
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/colaboradores")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ColaboradorController{
+
+    private final ColaboradorService colaboradorService;
 	
 	@Autowired
 	private ColaboradorRepository colaboradorRepository;
+
+    ColaboradorController(ColaboradorService colaboradorService) {
+        this.colaboradorService = colaboradorService;
+    }
 	
 	@GetMapping
 	public ResponseEntity<List<Colaborador>> getAll(){
@@ -47,6 +55,15 @@ public class ColaboradorController{
 	@GetMapping("/nome/{nome}")
 	public ResponseEntity<List<Colaborador>> getAllByNome(@PathVariable String nome){		
 		return ResponseEntity.ok(colaboradorRepository.findAllByNomeColaboradorContainingIgnoreCase(nome));
+	}
+	
+	@PostMapping("/salario/{id}")
+	public BigDecimal calcularSalario(@PathVariable Long id, @RequestBody CalculoSalario calculoSalario) {
+		Optional<Colaborador> colaborador = colaboradorRepository.findById(id);
+		if(colaborador.isEmpty()) {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+		}
+		return colaboradorService.calcularSalario(id, calculoSalario);
 	}
 	
 	@PostMapping

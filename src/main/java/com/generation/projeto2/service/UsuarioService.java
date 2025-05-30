@@ -3,10 +3,12 @@ package com.generation.projeto2.service;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.generation.projeto2.model.Usuario;
 import com.generation.projeto2.repository.UsuarioRepository;
 
+@Service
 public class UsuarioService {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
