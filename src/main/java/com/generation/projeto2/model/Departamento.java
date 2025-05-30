@@ -36,7 +36,7 @@ public class Departamento {
     @Positive(message = "O orçamento deve ser positivo!")
     private BigDecimal orcamento;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "tema", cascade = CascadeType.REMOVE)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "departamento", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("departamento")
 	private List<Colaborador> colaborador;
 
