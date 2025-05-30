@@ -70,9 +70,9 @@ public class ColaboradorController{
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id) {
 		
-		Optional<Colaborador> categoria = colaboradorRepository.findById(id);
+		Optional<Colaborador> colaborador = colaboradorRepository.findById(id);
 		
-		if(categoria.isEmpty()) {
+		if(colaborador.isEmpty()) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
 			
 		}
