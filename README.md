@@ -176,7 +176,7 @@ git clone https://github.com/Cavaleiros-Templarios/Projeto_02_Backend
 4. Na janela **Import**, selecione a opção: **General 🡲 Existing Projects into Workspace** e clique no botão **Next**
 5. Na janela **Import Projects**, no item **Select root directory**, clique no botão **Browse...** e selecione a pasta do Workspace onde você clonou o repositório do projeto
 6. O Eclipse/STS reconhecerá automaticamente o projeto
-7. Marque o Projeto_01_Backend no item **Projects** e clique no botão **Finish** para concluir a importação
+7. Marque o Projeto_02_Backend no item **Projects** e clique no botão **Finish** para concluir a importação
 
 
 ```
