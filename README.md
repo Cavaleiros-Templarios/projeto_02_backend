@@ -146,7 +146,7 @@ direction TB
 ## 🗃️ Diagrama Entidade-Relacionamento (DER)
 
 <div align="center">
-    <img src="https://ik.imagekit.io/gekut9ghjx/diagrama.webp" title="source: imagekit.io" />
+    <img src="https://ik.imagekit.io/gekut9ghjx/db_rh-DER-PNG.webp?updatedAt=1748870132002" title="source: imagekit.io" />
 </div>
 
 ------
