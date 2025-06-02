@@ -44,6 +44,7 @@ public class DepartamentoController {
                 .orElse(ResponseEntity.notFound().build());
     }
     
+    // GET - Buscar departamentos por nome
     @GetMapping("/nome/{nome}")
 	public ResponseEntity<List<Departamento>> getAllByNome(@PathVariable String nome){		
 		return ResponseEntity.ok(departamentoRepository.findAllByNomeContainingIgnoreCase(nome)); 
@@ -62,17 +63,14 @@ public class DepartamentoController {
         return ResponseEntity.ok(departamentoRepository.save(departamento));
     }
     
+    // DELETE - Deleta o departamento por ID
     @DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id) {
 		
-		Optional<Departamento> departamento = departamentoRepository.findById(id);
+		departamentoRepository.findById(id)
+		.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 		
-		if(departamento.isEmpty()) {
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-			
-		}
 		departamentoRepository.deleteById(id);
-		
 	}	
 }
