@@ -2,6 +2,7 @@ package com.generation.projeto2.model;
 
 
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,7 +23,7 @@ public class Usuario {
 	@NotBlank(message = "O atributo nome é obrigatório")
 	private String nome;
 	
-	//@Schema(example = "email@email.com.br")
+	@Schema(example = "email@email.com.br")
 	@NotBlank(message = "O atributo e-mail é obrigatório")
 	@Email(message = " O atributo Usuário deve ser um e-mail válido")
 	private String usuario;
