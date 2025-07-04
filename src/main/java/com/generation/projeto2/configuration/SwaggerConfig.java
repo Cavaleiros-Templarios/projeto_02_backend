@@ -1,5 +1,7 @@
 package com.generation.projeto2.configuration;
 
+import java.util.List;
+
 import org.springdoc.core.customizers.OpenApiCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,23 +18,28 @@ import io.swagger.v3.oas.models.responses.ApiResponses;
 public class SwaggerConfig {
 
 	@Bean
-    OpenAPI springRhOpenAPI() {
-        return new OpenAPI()
-            .info(new Info()
-                .title("Projeto Recursos Humanos")
-                .description("Projeto Recursos Humanos - Generation Brasil")
-                .version("v0.0.1")
-                .license(new License()
-                    .name("Generation Brasil")
-                    .url("https://brazil.generation.org/"))
-                .contact(new Contact()
-                    .name("Generation Brasil")
-                    .url("https://github.com/Cavaleiros-Templarios/Projeto_02_Backend")
-                    .email("teste@teste.org")))
-            .externalDocs(new ExternalDocumentation()
-                .description("Github")
-                .url("https://github.com/Cavaleiros-Templarios/Projeto_02_Backend"));
-    }
+	OpenAPI springRhOpenAPI() {
+	    return new OpenAPI()
+	        .info(new Info()
+	            .title("Projeto Recursos Humanos")
+	            .description("Projeto Recursos Humanos - Generation Brasil")
+	            .version("v0.0.1")
+	            .license(new License()
+	                .name("Generation Brasil")
+	                .url("https://brazil.generation.org/"))
+	            .contact(new Contact()
+	                .name("Generation Brasil")
+	                .url("https://github.com/Cavaleiros-Templarios/Projeto_02_Backend")
+	                .email("teste@teste.org")))
+	        .externalDocs(new ExternalDocumentation()
+	            .description("Github")
+	            .url("https://github.com/Cavaleiros-Templarios/Projeto_02_Backend"))
+	        .servers(List.of(
+	            new io.swagger.v3.oas.models.servers.Server()
+	                .url("https://SEU_PROJETO.railway.app")
+	        ));
+	}
+
 
 
 	@Bean
