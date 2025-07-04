@@ -36,7 +36,7 @@ public class SwaggerConfig {
 	            .url("https://github.com/Cavaleiros-Templarios/Projeto_02_Backend"))
 	        .servers(List.of(
 	            new io.swagger.v3.oas.models.servers.Server()
-	                .url("projeto02backend-production.up.railway.app")
+	                .url("https://projeto02backend-production.up.railway.app")
 	        ));
 	}
 
